@@ -1,0 +1,5 @@
+{
+  "name": "Google Ads Pacing Dashboard",
+  "description": "An interactive dashboard to visualize Google Ads pacing data from a Google Sheet. It features a dynamic three-column layout for accounts, campaigns, and a detailed performance dashboard.",
+  "requestFramePermissions": []
+}
