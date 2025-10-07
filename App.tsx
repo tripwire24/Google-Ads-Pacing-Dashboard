@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useGoogleSheetsData } from './hooks/useGoogleSheetsData';
 import { Account, Campaign } from './types';
@@ -70,7 +69,7 @@ const App: React.FC = () => {
     <div className="flex h-screen font-sans antialiased overflow-hidden bg-gray-100">
       {/* Accounts Column */}
       <div 
-        className={`transition-all duration-500 ease-in-out ${focusedColumn === 'accounts' ? 'w-[30%]' : 'w-[20%]'}`}
+        className={`transition-all duration-500 ease-in-out ${focusedColumn === 'accounts' ? 'w-[35%]' : 'w-[25%]'}`}
         onClick={() => setFocusedColumn('accounts')}
       >
         <AccountsList 
@@ -83,7 +82,7 @@ const App: React.FC = () => {
 
       {/* Campaigns Column */}
       <div 
-        className={`transition-all duration-500 ease-in-out ${focusedColumn === 'campaigns' ? 'w-[30%]' : 'w-[20%]'}`}
+        className={`transition-all duration-500 ease-in-out ${focusedColumn === 'campaigns' ? 'w-[35%]' : 'w-[25%]'}`}
         onClick={() => setFocusedColumn('campaigns')}
       >
         <CampaignsList 
@@ -95,7 +94,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Dashboard Column */}
-      <div className="w-[50%] flex-shrink-0 bg-gray-50 p-4 lg:p-6 overflow-y-auto">
+      <div className="w-[40%] flex-shrink-0 bg-gray-50 p-4 lg:p-6 overflow-y-auto">
         <DashboardView 
           item={selectedCampaign || selectedAccount} 
           type={selectedCampaign ? 'Campaign' : 'Account'}

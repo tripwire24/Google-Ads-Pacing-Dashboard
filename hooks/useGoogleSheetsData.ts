@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import { Account, Campaign, PacingStatus, RawSheetRow } from '../types';
 import { SPREADSHEET_ID, SHEET_NAME } from '../constants';
@@ -37,7 +36,13 @@ export const useGoogleSheetsData = (apiKey: string | undefined) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const processData = useCallback((data: { values: RawSheetRow[] }) => {
+  const processData = useCallback((data: { values?: RawSheetRow[] }) => {
+    if (!data || !data.values || data.values.length <= 1) {
+      setError("No data found in the Google Sheet. Please check if the sheet is empty or if the API key has the correct permissions.");
+      setAccounts([]);
+      return;
+    }
+    
     const campaigns: Campaign[] = [];
     // Skip header row by starting at index 1
     for (let i = 1; i < data.values.length; i++) {
